@@ -1,12 +1,16 @@
-import board
-
-"""Tiny text-only SSD1306 I2C driver for 128x64 displays on low-RAM CPX.
-
-Requires font5x7.bin in CIRCUITPY root. No display framebuffer.
+"""
+OLED pin	CPX pad
+GND	        GND
+VCC	        3.3V
+SCL	        SCL (A4)
+SDA	        SDA (A5)
 """
 import board
 
 class SimpleOLED:
+    """SimpleOLED is a tiny text-only SSD1306 I2C driver for 128x64 displays on low-RAM CPX.
+    Requires font5x7.bin in CIRCUITPY root. No display framebuffer.
+    """
     def __init__(self, address=None):
         self.bus = board.I2C()
         while not self.bus.try_lock():
